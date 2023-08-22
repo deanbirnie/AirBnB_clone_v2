@@ -9,10 +9,10 @@ CREATE USER IF NOT EXISTS 'hbnb_test'@'localhost' IDENTIFIED BY 'hbnb_test_pwd';
 
 -- Grant all privileges to the user (whether just created or existing) on `hbnb_test_db`
 -- Flush the privileges when done
-GRANT ALL PRIVILIGES ON hbnb_test_db.* TO 'hbnb_test'@'localhost';
-FLUSH PRIVILIGES;
+GRANT ALL PRIVILEGES ON hbnb_test_db.* TO 'hbnb_test'@'localhost';
+FLUSH PRIVILEGES;
 
 -- Grant the SELECT privilege on the `performance_schema` db to user `hbnb_test`
 -- Flush the privileges when done
 GRANT SELECT ON performance_schema.* TO 'hbnb_test'@'localhost';
-FLUSH PRIVILIGES;
+FLUSH PRIVILEGES;
