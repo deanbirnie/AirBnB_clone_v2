@@ -121,11 +121,14 @@ class HBNBCommand(cmd.Cmd):
         
         params = args.split(" ")
 
-        if params[2]:
+        if params[1]:
             args_dict = {}
-            class_name = params[1]
+            class_name = params[0]
             for param in params:
-                key, value = param.split("=")
+                if '=' in param:
+                    key, value = param.split("=")
+                else:
+                    continue
                 if value[0] == '"' and value[-1] == '"':
                     value = value.strip('"')
                     value = value.replace("_", " ")
@@ -139,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
                 args_dict[key] = value
         
         else:
-            class_name = params[1]
+            class_name = params[0]
 
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
