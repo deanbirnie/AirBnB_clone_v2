@@ -118,7 +118,7 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        
+
         params = args.split(" ")
 
         if params[1]:
@@ -132,7 +132,7 @@ class HBNBCommand(cmd.Cmd):
                 if value[0] == '"' and value[-1] == '"':
                     value = value.strip('"')
                     value = value.replace("_", " ")
-                
+
                 else:
                     try:
                         value = eval(value)
@@ -140,7 +140,7 @@ class HBNBCommand(cmd.Cmd):
                         continue
 
                 args_dict[key] = value
-        
+
         else:
             class_name = params[0]
 
@@ -151,7 +151,9 @@ class HBNBCommand(cmd.Cmd):
         new_instance = HBNBCommand.classes[class_name]()
         storage.save()
         print(new_instance.id)
-        updated_args = "{} {} {}".format(class_name, new_instance.id, args_dict)
+        updated_args = "{} {} {}".format(
+            class_name, new_instance.id, args_dict
+            )
         self.do_update(updated_args)
         storage.save()
 
@@ -216,7 +218,7 @@ class HBNBCommand(cmd.Cmd):
         key = c_name + "." + c_id
 
         try:
-            del(storage.all()[key])
+            del (storage.all()[key])
             storage.save()
         except KeyError:
             print("** no instance found **")
@@ -348,6 +350,7 @@ class HBNBCommand(cmd.Cmd):
         """ Help information for the update class """
         print("Updates an object with new information")
         print("Usage: update <className> <id> <attName> <attVal>\n")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
