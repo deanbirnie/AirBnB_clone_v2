@@ -3,3 +3,9 @@
 
 # ignore byte compiled files
 __pycache__/
+
+# ignore json file used for old storage of data
+file.json
+
+# ignore ALX test files
+test_params_create
