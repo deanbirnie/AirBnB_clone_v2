@@ -121,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
 
         params = args.split(" ")
 
-        if params[1]:
+        if len(params) > 1:
             args_dict = {}
             class_name = params[0]
             for param in params:
@@ -142,6 +142,7 @@ class HBNBCommand(cmd.Cmd):
                 args_dict[key] = value
 
         else:
+            args_dict = {}
             class_name = params[0]
 
         if class_name not in HBNBCommand.classes:
@@ -149,13 +150,11 @@ class HBNBCommand(cmd.Cmd):
             return
 
         new_instance = HBNBCommand.classes[class_name]()
+        for key, value in args_dict.items():
+            setattr(new_instance, key, value)
+        storage.new(new_instance)
         storage.save()
         print(new_instance.id)
-        updated_args = "{} {} {}".format(
-            class_name, new_instance.id, args_dict
-            )
-        self.do_update(updated_args)
-        storage.save()
 
     def help_create(self):
         """ Help information for the create method """
