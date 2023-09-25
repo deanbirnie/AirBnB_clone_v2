@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+0;10;1c
 """
 Start a Flask web application running
 on 0.0.0.0 using port 5000 with routes.
@@ -15,6 +15,7 @@ app = Flask("__name__")
 def hello():
     """Default route that returns a simple string"""
     return "Hello HBNB!"
+
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
