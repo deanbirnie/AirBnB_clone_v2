@@ -44,7 +44,7 @@ def isNumber(n):
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def numberTemplate(n):
+def numberTemplate(n=None):
     """Display an HTML page only if n is an integer"""
     if isinstance(n, int):
         return render_template('5-number.html', n=n)
