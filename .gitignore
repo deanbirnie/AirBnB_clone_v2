@@ -9,3 +9,7 @@ file.json
 
 # ignore ALX test files
 test_params_create
+
+# ignore W3C validator
+W3C-Validator/
+w3c_validator.py
